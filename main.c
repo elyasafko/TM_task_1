@@ -35,7 +35,7 @@ int main()
     for (int i = num1; i <= num2; i++) 
         if (isStrong(i)) 
             printf(" %d", i);
-    printf("\n");
+    //printf("\n");
     
     return 0;
 }
