@@ -1,5 +1,4 @@
-CC = gcc
-
+.PHONY: all clean loops recursives recursived loopd
 
 loops: libclassloops.a
 recursives: libclassrec.a
@@ -49,6 +48,5 @@ advancedClassificationRecursion.o: advancedClassificationRecursion.c
 	gcc -Wall -c advancedClassificationRecursion.c
 
 
-.PHONY: clean
 clean:
 	@rm -f *.o *.a *.so mains maindloop maindrec
