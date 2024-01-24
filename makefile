@@ -8,23 +8,23 @@ recursived: libclassrec.so
 
 
 libclassloops.a: basicClassification.o advancedClassificationLoop.o
-	ar -rcs libclassloops.a basicClassification.o advancedClassificationLoop.o 
+	ar -rcs $@ $^
 	ranlib libclassloops.a
 
 libclassrec.a: basicClassification.o advancedClassificationRecursion.o
-	ar -rcs libclassrec.a basicClassification.o advancedClassificationRecursion.o
+	ar -rcs $@ $^
 	ranlib libclassrec.a
 
 libclassloops.so: basicClassification.o advancedClassificationLoop.o
-	gcc -shared -o libclassloops.so basicClassification.o advancedClassificationLoop.o
+	gcc -shared -o libclassloops.so $^
 
 libclassrec.so: basicClassification.o advancedClassificationRecursion.o
-	gcc -shared -o libclassrec.so basicClassification.o advancedClassificationRecursion.o
+	gcc -shared -o libclassrec.so $^
 
 
 
 mains: main.o libclassrec.a
-	gcc -Wall -g main.o -L. ./libclassrec.a -o mains
+	gcc -Wall -g $< -L. ./libclassrec.a -o mains
 
 maindloop: main.o libclassloops.so 
 	gcc -Wall -g -o maindloop main.o ./libclassloops.so 
