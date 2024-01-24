@@ -27,11 +27,11 @@ mains: main.o libclassrec.a
 
 # The main program with dynamic libary of loops implametation
 maindloop: main.o libclassloops.so
-	$(CC) $(CFLAGS) $< ./$libclassloops.so -o $@
+	$(CC) $(CFLAGS) $< ./libclassloops.so -o $@
 
 # The main program with dynamic libary of recursive implametation
 maindrec: main.o libclassrec.so
-	$(CC) $(CFLAGS) $< ./$libclassrec.so -o $@
+	$(CC) $(CFLAGS) $< ./libclassrec.so -o $@
 
 # Compile the main program to an object file
 main.o: main.c NumClass.h
@@ -41,7 +41,7 @@ main.o: main.c NumClass.h
 libclassrec.so: advancedClassificationRecursion.o basicClassification.o
 	$(CC) $(LFLAGS) $(CFLAGS) $^ -o $@
 
-libclassloops.so: $(LIBLOOP:.c=.o) basicClassification.o
+libclassloops.so: advancedClassificationLoop.o basicClassification.o
 	$(CC) $(LFLAGS) $(CFLAGS) $^ -o $@
 
 libclassloops.a: advancedClassificationLoop.o basicClassification.o
