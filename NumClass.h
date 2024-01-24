@@ -1,4 +1,5 @@
-
+#ifndef NUMCLASS_H
+#define NUMCLASS_H
 /* will return if a number is Armstrong number
 An Armstrong number is an n-digit number that is equal to the sum of the nth power of its digits.
 For Example: 407 = 4^3 + 0^3 + 7^3 = 64 + 0 + 343 = 407
@@ -21,3 +22,5 @@ int isStrong(int);
 // Function helper declarations
 int numberLength(int number);
 int power(int base, int exponent);
+
+#endif
